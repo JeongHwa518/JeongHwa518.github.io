@@ -1,0 +1,29 @@
+ul li a{text-decoration: none;}
+
+nav li a:link{color: red;}
+nav li a:visited{color: green;}
+nav li a:hover{color: blueviolet; text-decoration: underline;}
+
+
+/*메뉴 가로방향*/
+#navbar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar ul li{
+    list-style-type: none;
+    margin: 0px 10px; /*상하 좌우*/
+    font-weight: bold;
+}
+
+#navbar ul li.nav-item.logo img{
+    width: 40px ; height: 40px;
+    border-radius: 20px;
+}
+
+#navbar{
+    background-color: aliceblue;
+padding:5px;
+}

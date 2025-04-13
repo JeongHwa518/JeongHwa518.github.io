@@ -1,0 +1,22 @@
+.Editor{
+    display:flex;
+    gap: 10px;
+}
+
+/*input 요소 css */
+.Editor input{
+    flex: 1; /*1은 부모요소에 벗어나지 않는 범위내에서 최대 크기로 나온다. */
+    padding: 15px;
+    border: 1px solid rgb(220,220,220);
+    border-radius: 5px;
+}
+
+/*button요소 css*/
+.Editor button{
+    cursor: pointer;
+    width: 80px;
+    border: none;
+    color: white;
+    background-color: rgb(37,147,255);
+    border-radius: 5px;
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT's KOSTA - register</title>
+
+  <link rel="stylesheet" href="css/navbar.css" type="text/css" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+  <link rel="stylesheet" href="css/footer.css" type="text/css" />
+  <style>
+  #register{
+     padding:  20px 0px; /*상하 좌우 */
+   }
+
+   #register h1{
+    text-align: center;
+    padding: 5px;
+   }
+   
+   #register form{
+    height: 300px;
+    border:  1px solid gray;
+    padding: 40px;
+   }
+   
+   #register .form-item{
+     margin-bottom: 10px;
+   }
+
+   #register .form-item label{
+     width: 150px ;
+     display: inline-block;
+     font-size: 18px;
+   }
+
+   #register .form-item input{
+     font-size: 18px;
+     border: 1px skyblue solid;
+     width: 200px;
+   }
+
+   #register button{
+     float: right;
+     width: 100px;
+     font-size: 18px;
+     padding: 5px;
+     margin-top: 10px;
+   }
+
+  </style>
+
+</head>
+<body>
+	<nav id="navbar">
+		<!-- 5개의 메뉴생성 -->
+		  <ul>
+			<li class="nav-item logo"><a href="index.html"><img src="images/logo.jpg" alt="로고입니다." ></a></li>
+			<li class="nav-item"> <a href="personal.html">개인</a></li>
+			<li class="nav-item"><a href="busines.html">기업</a></li>
+			<li class="nav-item"><a href="login.html">로그인</a></li>
+			<li class="nav-item"><a href="register.html">회원가입</a></li>
+		   
+		  </ul>
+		</nav>
+		
+		<div id="banner">지금 당신의 행복! IT's KOSTA Life!</div> 
+
+<div id="container">
+ <!-- navbar  추가  -->
+
+    
+  <div id="register">
+	  <h1>Register</h1>
+	  <form action="index.html" method="post">
+	  <div class="form-item">
+	    <label for="name">이름</label>
+	    <input type="text" id="name" name="name">
+	 </div>
+	    
+	   <div class="form-item">
+	    <label for="email">이메일</label>
+	    <input type="email" id="email" name="email">
+	  </div>
+	  
+	   <div class="form-item">
+	    <label for="phone">연락처</label>
+	    <input type="text" id="phone" name="phone">
+	   </div>
+	   
+	    <div class="form-item">
+		    <label for="password">비밀번호</label>
+		    <input type="password" id="password" name="password">
+	    </div>
+	    
+	   <div class="form-item">
+		    <label for="password2">비밀번호 확인</label>
+		    <input type="password" id="password2" name="password2">
+	    </div>
+	    
+	    <hr>
+	    <button type="button" id="btn">회원 가입</button>
+	  </form>
+	  
+  </div> 
+ 
+  <!--footer영역 -->
+  <footer>
+	<ul>
+	  <li>경기도 오리역 한국소프트웨어진흥협회</li>
+	  <li>02-0000-0000</li>
+	</ul>
+  </footer>
+  
+  <script>
+    document.getElementById("btn").addEventListener("click",(e)=>{
+      e.preventDefault();
+
+      let name = document.getElementById("name");
+      let email = document.getElementById("email");
+      let phone = document.getElementById("phone");
+      let pwd = document.getElementById("password");
+      let pwdCheck = document.getElementById("password2");
+
+      function validateCheck(obj) {
+        if(obj.value === ""){
+          alert("이름을 입력해주세요!");
+          obj.focus();
+          return true; //유효성 체크 실패
+        } else {
+          return false; //유효성 체크 성공
+        }
+      }
+
+      document.querySelectorAll("input").forEach(function(item, idx){
+        if(state){
+          if (validateCheck(item)) {  //유효성체크에서 실패
+            state=false; //return으로는 소용이 없으므로 상태변수에 false 담음 (return으로는 콜백함수만 빠져나가게됨)
+          }
+        }
+      })
+
+      //이름의 값 유무 체크
+      if(name.value === "") {
+        alert("이름을 입력해주세요!");
+        name.focus();
+        return;
+      }
+
+      //이메일 값 유무 체크
+      if(email.value === "") {
+        alert("이메일을 입력해주세요!");
+        email.focus();
+        return;
+      }
+
+      //연락처 값 유무 체크
+      if(phone.value === "") {
+        alert("연락처를 입력해주세요!");
+        phone.focus();
+        return;
+      }
+
+      //비밀번호 값 유무 체크
+      if(pwd.value === "") {
+        alert("비밀번호를 입력해주세요!");
+        pwd.focus();
+        return;
+      }
+
+      //비밀번호일치 값 유무 체크
+      if(pwdCheck.value === "") {
+        alert("비밀번호 일치여부를 확인해주세요!");
+        pwdCheck.focus();
+        return;
+      }
+
+      //이메일에 @ 여부 확인
+      if(email.value.indexOf("@") === -1) {
+        alert("이메일 형식이 아닙니다.");
+        email.value = "";
+        email.focus();
+        return;
+      }
+
+      //비밀번호 일치 여부 확인
+      if(pwd.value !== pwdCheck.value){
+        alert("비밀번호가 일치하지 않습니다!");
+        pwd.value= "";
+        pwdCheck.value = "";
+        pwd.focus();
+        return;
+      }
+
+      //입력된 값 출력
+      console.log(`이름: ${name.value} | 이메일: ${email.value} | 연락처: ${phone.value} | 비밀번호: ${pwd.value}`);
+      //데이터 전송
+      const form = document.querySelector("form");
+      form.submit;
+    });
+
+  </script>  
+
+</div>
+<script src="js/common.js"></script>
+</body>
+</html>
